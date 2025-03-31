@@ -60,7 +60,7 @@
           Cmd = [
             "/bin/bash" 
             "-c" 
-            "mkdir -p /data/mods /data/config && cd /data && java -Xmx4G -Xms2G -XX:+UseG1GC -jar /nix/store/*-fabric-server-launch.jar nogui"
+            "mkdir -p /data/mods /data/config && cd /data && find /nix/store -name \"fabric-server-launch.jar\" | xargs java -Xmx4G -Xms2G -XX:+UseG1GC -jar nogui"
           ];
           WorkingDir = "/data";
           Volumes = {
