@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  minecraft:
+    build: .
+    container_name: tpotcraft
+    restart: unless-stopped
+    ports:
+      - "25565:25565"
+    volumes:
+      - ./minecraft-data:/minecraft/world
+    environment:
+      - JAVA_OPTS=-Xmx4G -Xms2G -XX:+UseG1GC
+    tty: true
+    stdin_open: true
