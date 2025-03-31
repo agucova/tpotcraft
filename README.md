@@ -1,98 +1,41 @@
 # TPotCraft Server
 
-A NixOS-based Minecraft server for Better Minecraft 3 modpack using Fabric.
+A NixOS-based Minecraft server for Better Minecraft 3 using Fabric.
 
 ## Features
 
 - Declarative configuration using NixOS and Flakes
 - Minecraft 1.21 with Fabric 0.15.9
-- Docker and VM support for running locally
+- Better Minecraft 3 modpack support
 - Optimized JVM settings for performance
 
-## Running Locally on Ubuntu
+## Requirements
 
-You have two options for running the server locally on your Ubuntu machine:
+- NixOS or Nix with flakes enabled
+- Unfree packages allowed (for Minecraft)
 
-### Option 1: Docker (Recommended)
+## Setup
 
-1. Make sure you have Docker installed:
+1. Clone this repository
+2. Generate a hardware configuration for your target system:
    ```
-   sudo apt update
-   sudo apt install docker.io
+   nixos-generate-config --show-hardware-config > hardware-configuration.nix
    ```
-
-2. Install Nix (if not already installed):
+3. Build and deploy to your system:
    ```
-   sh <(curl -L https://nixos.org/nix/install) --daemon
-   ```
-
-3. Enable Flakes:
-   ```
-   mkdir -p ~/.config/nix
-   echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
+   sudo nixos-rebuild switch --flake .
    ```
 
-4. Build the Docker image:
-   ```
-   cd tpotcraft
-   NIXPKGS_ALLOW_UNFREE=1 nix build .#dockerImage --experimental-features "nix-command flakes" --impure
-   ```
+## Managing the Server
 
-5. Load the image into Docker:
-   ```
-   docker load < result
-   ```
+Once deployed, the server will be available as a systemd service:
 
-6. Create a data directory and start the server:
-   ```
-   mkdir -p minecraft-data
-   docker compose up -d
-   ```
-
-7. Download and install the Better Minecraft 3 modpack files:
-   - Download the server files from CurseForge or Modrinth
-   - Extract them into the `minecraft-data/mods` and `minecraft-data/config` directories
-
-8. The server will be available at localhost:25565
-
-### Option 2: VM with QEMU
-
-1. Install Nix and enable Flakes (see above)
-
-2. Install QEMU:
-   ```
-   sudo apt install qemu-kvm qemu-system-x86
-   ```
-
-3. Create a data directory:
-   ```
-   mkdir -p ~/tpotcraft-data
-   ```
-
-4. Build and run the VM:
-   ```
-   NIXPKGS_ALLOW_UNFREE=1 nix build .#vm --experimental-features "nix-command flakes" --impure
-   ./result/bin/run-tpotcraft-vm
-   ```
-
-5. Download and install the Better Minecraft 3 modpack files in the VM:
-   - Login with username `minecraft` and password `minecraft`
-   - Download the server files to `/srv/minecraft/bm3/mods` and `/srv/minecraft/bm3/config`
-
-6. The VM will boot with the Minecraft server accessible at localhost:25565
-
-## Server Management
-
-### For Docker:
-- Logs: `docker logs -f tpotcraft`
-- Console: `docker attach tpotcraft` (detach with Ctrl+p, Ctrl+q)
-- Stop: `docker compose down`
-
-### For VM:
-- Login with username `minecraft` and password `minecraft`
-- The server will autostart
+- Start: `sudo systemctl start minecraft-servers-bm3`
+- Stop: `sudo systemctl stop minecraft-servers-bm3`
+- Restart: `sudo systemctl restart minecraft-servers-bm3`
+- Status: `sudo systemctl status minecraft-servers-bm3`
+- Logs: `sudo journalctl -u minecraft-servers-bm3 -f`
 - Console: `sudo tmux -S /run/minecraft/bm3.sock attach` (detach with Ctrl+b, d)
-- Service management: `sudo systemctl {start|stop|restart} minecraft-servers-bm3`
 
 ## Server Properties
 
@@ -104,4 +47,30 @@ The server is configured with the following properties:
 - Whitelist: Enabled
 - Max Players: 10
 
-You can modify these settings in the configuration files.
+## Adding Mods and Customization
+
+This configuration includes the core Fabric mods required for Better Minecraft 3. You can add additional mods by:
+
+1. Finding the mod on Modrinth
+2. Getting the download URL and hash
+3. Adding it to the `symlinks.mods` section in `configuration.nix`
+
+Example:
+```nix
+Lithium = pkgs.fetchurl {
+  url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/ZSNsJrPI/lithium-fabric-mc1.20.1-0.11.2.jar";
+  hash = "sha256-RWC7E8BdLTw0lQ3GGFY5s7OdC3gxfX3VwT1HS1K0T20=";
+};
+```
+
+You can also add config files, resource packs, and other customizations using the `symlinks` or `files` options in the configuration.
+
+## Directory Structure
+
+Server data is stored in the following locations:
+
+- Server files: `/srv/minecraft/bm3/`
+- World data: `/srv/minecraft/bm3/world/`
+- Logs: `/srv/minecraft/bm3/logs/`
+- Mods: `/srv/minecraft/bm3/mods/`
+- Config: `/srv/minecraft/bm3/config/`
