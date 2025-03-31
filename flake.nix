@@ -14,35 +14,132 @@
       overlays = [ nix-minecraft.overlay ];
       config.allowUnfree = true;
     };
+    
+    # We need a GitHub URL for the packwiz modpack - currently using temporary placeholder
+    # You can update this URL with your actual GitHub repository
+    packwizUrl = "https://raw.githubusercontent.com/agucova/tpotcraft/main/pack.toml";
+    packwizHash = "sha256-CXXM+qrJ7nAYOE3VjzM9tJyidKPxpgFCK+Z3r1LrPjU=";
+    
+    # Fetch modpack using fetchPackwizModpack
+    tpotModpack = pkgs.fetchPackwizModpack {
+      url = packwizUrl;
+      packHash = packwizHash;
+    };
+    
+    # Read Minecraft and Fabric versions from pack.toml to fallback if fetch fails
+    javaVersion = "17";
+    minecraft = "1.21.1";
+    fabricVersion = "0.16.10"; # Read from pack.toml
+    
+    # Create a minecraft server configuration
+    fabricServer = {
+      enable = true;
+      package = pkgs.fabricServers.fabric-1_21_1.override {
+        loaderVersion = builtins.trace "Using Fabric version: ${tpotModpack.manifest.versions.fabric or fabricVersion}" 
+                         (tpotModpack.manifest.versions.fabric or fabricVersion);
+      };
+      jvmOpts = "-Xms2G -Xmx4G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200";
+      serverProperties = {
+        server-port = 25565;
+        difficulty = "normal";
+        gamemode = "survival";
+        motd = "TPotCraft - Better Minecraft 3";
+        white-list = true;
+        spawn-protection = 0;
+        max-players = 10;
+      };
+    };
+
+    # Docker run script
+    dockerRunScript = pkgs.writeShellScriptBin "run-server.sh" ''
+      #!/usr/bin/env bash
+      mkdir -p minecraft-data
+      
+      # Set EULA=true in the mounted volume
+      echo "eula=true" > minecraft-data/eula.txt
+      
+      # Start the server
+      echo "Starting Minecraft server..."
+      docker run --rm -it \
+        -p 25565:25565 \
+        -v "$(pwd)/minecraft-data:/data" \
+        --name tpotcraft \
+        tpotcraft:latest
+    '';
+    
   in {
     packages.${system} = {
-      # Create a Docker image for the Minecraft server
-      docker-image = pkgs.dockerTools.buildLayeredImage {
+      # Docker image
+      docker-image = pkgs.dockerTools.buildImage {
         name = "tpotcraft";
         tag = "latest";
         
-        contents = [
-          # Basic tools
-          pkgs.bashInteractive
-          pkgs.coreutils
-          pkgs.tmux
-          pkgs.curl
-          pkgs.findutils
-          pkgs.wget
-          pkgs.vim
-          pkgs.htop
-          
-          # JDK for Minecraft
-          pkgs.jdk17
-          
-          # Minecraft server
-          (pkgs.fabricServers.fabric-1_21.override {
-            loaderVersion = "0.15.9";
-          })
-        ];
+        copyToRoot = pkgs.buildEnv {
+          name = "image-root";
+          paths = [
+            # Basic tools
+            pkgs.bashInteractive
+            pkgs.coreutils
+            pkgs.findutils
+            pkgs.tmux
+            
+            # JDK for Minecraft
+            pkgs.jdk17
+            
+            # Minecraft server
+            fabricServer.package
+          ];
+        };
         
         config = {
-          Cmd = "/bin/bash -c 'if [ ! -f /data/eula.txt ] || ! grep -q \"eula=true\" /data/eula.txt; then echo \"eula=true\" > /data/eula.txt; fi && mkdir -p /data/mods /data/config && cd /data && java -Xmx4G -Xms2G -XX:+UseG1GC -jar $(find /nix/store -name \"fabric-server-launch.jar\" | head -1) nogui'";
+          Entrypoint = [
+            "/bin/bash"
+            "-c"
+            ''
+            # Create necessary directories
+            mkdir -p /data
+            
+            # Setup modpack files
+            if [ ! -d /data/mods ] || [ ! "$(ls -A /data/mods 2>/dev/null)" ]; then
+              echo "Setting up TPotCraft modpack..."
+              
+              # Copy modpack files to server data directory
+              mkdir -p /data/mods /data/config
+              
+              # Copy mods from the packwiz modpack
+              cp -r ${tpotModpack}/mods/* /data/mods/ 2>/dev/null || true
+              cp -r ${tpotModpack}/config/* /data/config/ 2>/dev/null || true
+              
+              # Copy any other important directories that may exist in the modpack
+              for dir in defaultconfigs kubejs resourcepacks scripts; do
+                if [ -d "${tpotModpack}/$dir" ]; then
+                  mkdir -p "/data/$dir"
+                  cp -r "${tpotModpack}/$dir"/* "/data/$dir/" 2>/dev/null || true
+                fi
+              done
+              
+              echo "TPotCraft modpack setup complete."
+            fi
+            
+            # Create server.properties if it doesn't exist
+            if [ ! -f /data/server.properties ]; then
+              cat > /data/server.properties << EOF
+            server-port=25565
+            difficulty=normal
+            gamemode=survival
+            motd=TPotCraft - Better Minecraft 3
+            white-list=true
+            spawn-protection=0
+            max-players=10
+            EOF
+            fi
+            
+            # Start the server
+            cd /data
+            echo "eula=true" > eula.txt
+            exec java ${fabricServer.jvmOpts} -jar $(find /nix/store -name 'fabric-server-launch.jar' | head -1) nogui
+            ''
+          ];
           WorkingDir = "/data";
           Volumes = {
             "/data" = {};
@@ -52,44 +149,10 @@
           };
         };
       };
+
+      # Helper script to run the server
+      run-script = dockerRunScript;
       
-      # Create a minimal server.properties file
-      server-properties = pkgs.writeTextFile {
-        name = "server.properties";
-        text = ''
-          server-port=25565
-          difficulty=normal
-          gamemode=survival
-          motd=TPotCraft - Better Minecraft 3
-          white-list=true
-          spawn-protection=0
-          max-players=10
-        '';
-        destination = "/server.properties";
-      };
-      
-      # Create a script to download core mods
-      download-mods = pkgs.writeShellScriptBin "download-mods" ''
-        #!/bin/bash
-        set -e
-        
-        TARGET_DIR="$1"
-        if [ -z "$TARGET_DIR" ]; then
-          echo "Usage: download-mods TARGET_DIRECTORY"
-          exit 1
-        fi
-        
-        mkdir -p "$TARGET_DIR"
-        
-        echo "Downloading core mods for Better Minecraft 3..."
-        curl -L -o "$TARGET_DIR/fabric-api.jar" "https://cdn.modrinth.com/data/P7dR8mSH/versions/9YVrKY0Z/fabric-api-0.115.0%2B1.21.1.jar"
-        curl -L -o "$TARGET_DIR/fabric-language-kotlin.jar" "https://cdn.modrinth.com/data/Ha28R6CL/versions/vMQSiIN6/fabric-language-kotlin-1.10.17%2Bkotlin.1.9.22.jar"
-        
-        echo "Core mods downloaded to $TARGET_DIR"
-        echo "Now download and add the Better Minecraft 3 modpack files"
-      '';
-      
-      # Default package is the Docker image
       default = self.packages.${system}.docker-image;
     };
   };
