@@ -1,0 +1,13 @@
+name = "Trinkets Compat Layer for Accessories"
+filename = "accessories_tclayer-3.10.0-beta.25+1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "6c354644bf92da1e7c11f379f224ef2ba20b0534"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6333238
+project-id = 1005680

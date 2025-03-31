@@ -1,0 +1,13 @@
+name = "Too Fast"
+filename = "toofast-fabric-1.21-1.3.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "fbb6c8fba513e043f76f7fed2f59d68080ae7d1b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5634093
+project-id = 550678

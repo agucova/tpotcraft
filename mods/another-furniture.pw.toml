@@ -1,0 +1,13 @@
+name = "Another Furniture"
+filename = "another_furniture-fabric-4.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "56596bcd7196d9d56bb6f4a8146d3d80e000b908"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5850324
+project-id = 610492

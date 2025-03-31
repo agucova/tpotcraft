@@ -1,0 +1,13 @@
+name = "TerraBlenderFix"
+filename = "terrablenderfix-fabric-1.21.1-0.0.1 (1).jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "20e8789d73f016b808f62b5cb922388592e9cc28"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6060230
+project-id = 1080945

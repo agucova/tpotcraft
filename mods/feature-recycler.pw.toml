@@ -1,0 +1,13 @@
+name = "Feature Recycler"
+filename = "Feature-Recycler-fabric-2.0.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ac8b48bd3fda5c2e32671fd39038ff193c860197"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5829418
+project-id = 1077985

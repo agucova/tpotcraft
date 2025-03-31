@@ -1,0 +1,13 @@
+name = "Prickle"
+filename = "prickle-fabric-1.21.1-21.1.6.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "37a4d086303671e64baf8a2814e8c3e8326d16e2"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5836408
+project-id = 1023259

@@ -1,0 +1,13 @@
+name = "Chipped"
+filename = "chipped-fabric-1.21.1-4.0.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "add18f65d7b131e05313cd98069cb71adac3483c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5813118
+project-id = 456956

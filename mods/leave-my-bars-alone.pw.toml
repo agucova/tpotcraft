@@ -1,0 +1,13 @@
+name = "Leave My Bars Alone"
+filename = "LeaveMyBarsAlone-v21.1.2-1.21.1-Fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f7e4c1173243f45fd2c4e0d14258b3e3f16211ec"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5770177
+project-id = 281715

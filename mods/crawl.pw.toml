@@ -1,0 +1,13 @@
+name = "Crawl (Fabric/NeoForge)"
+filename = "crawl-0.14.5.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e6d4e6b20e4ddafb4646cba5eaa69710131af269"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6335324
+project-id = 314579

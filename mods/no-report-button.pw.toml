@@ -1,0 +1,13 @@
+name = "No Report Button"
+filename = "no-report-button-fabric-1.6.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a834cedc5e897d9e7371d0197a907979e4b98805"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6108208
+project-id = 658722

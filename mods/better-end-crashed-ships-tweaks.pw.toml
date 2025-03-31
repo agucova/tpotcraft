@@ -1,0 +1,13 @@
+name = "BetterEnd Crashed Ships Tweaks"
+filename = "betterend-crashed-ships-1.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "21154705eb2607790cd29525dd217749e3d188b7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5621908
+project-id = 1018676

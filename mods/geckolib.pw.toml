@@ -1,0 +1,13 @@
+name = "GeckoLib"
+filename = "geckolib-fabric-1.21.1-4.7.5.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "04f89794373ef193df4285818760db002413f5c6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6304945
+project-id = 388172

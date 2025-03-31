@@ -1,0 +1,13 @@
+name = "Does It Tick?"
+filename = "does_it_tick-fabric-1.1.1-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f0486353fb60f1a031102d0866e5dca70f7438e0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6336227
+project-id = 543308

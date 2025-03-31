@@ -1,0 +1,13 @@
+name = "Adventure Dungeons"
+filename = "adventuredungeons-fabric-1.21-1.3.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "12bb82887e1d734ecd6f56547bdc4fd108890dd6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5808385
+project-id = 1111930

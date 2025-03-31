@@ -1,0 +1,13 @@
+name = "More Villagers : Re-employed"
+filename = "morevillagers-re-1.21.x-fabric-5.1.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a9ccc22f5b75f485efa77beb8201dd1dd11eb3b6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6006553
+project-id = 1147438

@@ -1,0 +1,13 @@
+name = "Aether Addon: Protect Your Moa"
+filename = "aether_protect_your_moa-1.21.1-1.0.0-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "0246b0620daf7aa7857c64a1417fe4b9f5e25cc8"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6244720
+project-id = 1016303

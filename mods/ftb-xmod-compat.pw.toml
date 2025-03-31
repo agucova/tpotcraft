@@ -1,0 +1,13 @@
+name = "FTB XMod Compat"
+filename = "ftb-xmod-compat-fabric-21.1.3.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d9c613f9b7d885a4dc9e7aeaa5fa16bf84e25975"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6259291
+project-id = 889915

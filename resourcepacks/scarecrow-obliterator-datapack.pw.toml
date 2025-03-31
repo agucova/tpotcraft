@@ -1,0 +1,13 @@
+name = "Scarecrow Obliterator | Datapack"
+filename = "Scarecrow_Obliterator.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "93a080efdb8a07f92f1ae805f0259f65c2a465ce"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5052981
+project-id = 965613

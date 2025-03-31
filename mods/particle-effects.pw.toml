@@ -1,0 +1,13 @@
+name = "Particle Effects"
+filename = "Particle Effects-1.0.2+1.21.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "7d888bb6c14796f9184e0844048ef0e315764696"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6199069
+project-id = 1120746

@@ -1,0 +1,13 @@
+name = "Cherished Worlds (Fabric/Forge/NeoForge/Quilt)"
+filename = "cherishedworlds-fabric-10.1.0+1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "201bab93b3de4b8870b1593bd2197e2c75e868f7"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5846428
+project-id = 308240

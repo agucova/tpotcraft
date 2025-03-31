@@ -1,0 +1,13 @@
+name = "Better Compatibility Checker"
+filename = "BetterCompatibilityChecker-fabric-21.1.0+mc1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "70bb97ba07f4b4ddba5e903c3c8c5c24daede3ca"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5711702
+project-id = 551894

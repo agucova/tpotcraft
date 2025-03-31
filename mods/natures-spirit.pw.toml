@@ -1,0 +1,13 @@
+name = "Nature's Spirit"
+filename = "naturespirit-2.2.1-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "760774df6f5c1bd18a807932d96cde1afb6dcd73"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6201808
+project-id = 1044992

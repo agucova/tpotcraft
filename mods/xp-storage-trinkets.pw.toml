@@ -1,0 +1,13 @@
+name = "XP Storage - Trinkets"
+filename = "xpstorage_trinkets-1.0.2+1.21.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "78ec001bbb45ae4c2c3fcf9accba2fa29ae7bedb"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5833652
+project-id = 508696

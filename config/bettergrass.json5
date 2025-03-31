@@ -1,0 +1,49 @@
+{
+	/* -> General
+	   OFF/FAST/FANCY (default: FANCY)
+	*/
+	"betterGrassMode": "FANCY",
+	// (default: true)
+	"resourcePackCompatibilityMode": true,
+	/* Blocks
+	   (default: true)
+	*/
+	"grassBlocks": true,
+	// (default: true)
+	"snowy": true,
+	// (default: true)
+	"dirtPaths": false,
+	// (default: true)
+	"farmLands": false,
+	// (default: true)
+	"podzol": true,
+	// (default: true)
+	"mycelium": true,
+	// (default: true)
+	"crimsonNylium": true,
+	// (default: true)
+	"warpedNylium": true,
+	"moreBlocks": [],
+	/* -> Better Snow
+	   OFF/OPTIFINE/LAMBDA (default: OPTIFINE)
+	*/
+	"betterSnowMode": "OPTIFINE",
+	"snowLayers": [
+		"snow",
+		"moss_carpet"
+	],
+	"excludedTags": [
+		"leaves",
+		"buttons",
+		"rails",
+		"wooden_pressure_plates"
+	],
+	"excludedBlocks": [
+		"heavy_weighted_pressure_plate",
+		"light_weighted_pressure_plate",
+		"polished_blackstone_pressure_plate",
+		"stone_pressure_plate"
+	],
+	"whitelistedTags": [],
+	"whitelistedBlocks": []
+}

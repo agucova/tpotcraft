@@ -1,0 +1,13 @@
+name = "Aurelj's Paintings"
+filename = "AureljPaintings-1.0.4-1.21.x-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "2ef5ac36bdb1814860e62087d1be7afececa1ea6"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5654369
+project-id = 1087786

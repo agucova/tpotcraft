@@ -1,0 +1,13 @@
+name = "Random Enchant Fix"
+filename = "randomenchantfix-fabric-1.0.0-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "b4bfdec3c2b5cc551ef819158cd9e8c5b9c282ac"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6246165
+project-id = 1209864

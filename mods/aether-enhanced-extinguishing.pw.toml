@@ -1,0 +1,13 @@
+name = "Aether Addon: Enhanced Extinguishing"
+filename = "aether_enhanced_extinguishing-1.21.1-1.0.0-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f0aad62df4544eb156aa06098dcbd5eacb961559"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6244448
+project-id = 884860

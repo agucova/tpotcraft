@@ -1,0 +1,13 @@
+name = "Mandala's GUI - Dark mode"
+filename = "MandalasGUI+Dakmode_1.20.5.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "65e23c62cfa9738c35fd736b237626f8226a3c2a"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5297551
+project-id = 664719

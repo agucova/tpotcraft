@@ -1,0 +1,13 @@
+name = "Fabric Seasons: Extras"
+filename = "fabric-seasons-extras-1.3.2-BETA+1.21.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "af4ec2b9494929ebe2edcb5c50bdf1f44538ae02"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5768170
+project-id = 839878

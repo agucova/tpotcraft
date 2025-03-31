@@ -1,0 +1,13 @@
+name = "WunderLib"
+filename = "wunderlib-21.0.8.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ad8c66609db363765855983f0e7f3b655ed0cc64"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5616544
+project-id = 1080043

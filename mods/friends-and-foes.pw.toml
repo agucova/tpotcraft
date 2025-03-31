@@ -1,0 +1,13 @@
+name = "Friends&Foes (Fabric/Quilt)"
+filename = "friendsandfoes-fabric-mc1.21.1-3.0.8.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f4b03ecc4c2ae052f91395cbee5367cb0ea2fb6b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6283406
+project-id = 551364

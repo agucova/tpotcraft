@@ -1,0 +1,13 @@
+name = "Structure Layout Optimizer"
+filename = "structure_layout_optimizer-fabric-1.0.10.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "616623cef67c3847260ecd9a7533ca278837045b"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6125431
+project-id = 1087831

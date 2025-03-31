@@ -1,0 +1,13 @@
+name = "Bedrockoid"
+filename = "bedrockoid-0.1.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "32590a913896c8ab8870014b0b226da781251e7e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6332643
+project-id = 1217715

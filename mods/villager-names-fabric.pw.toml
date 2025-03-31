@@ -1,0 +1,13 @@
+name = "YANDO's Villager Names (Fabric)"
+filename = "villagernames-1.21-4.5.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "9c03df4a71cba0a7f2a99aefd405971f85144c66"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5428375
+project-id = 416379

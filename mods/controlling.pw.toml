@@ -1,0 +1,13 @@
+name = "Controlling"
+filename = "Controlling-fabric-1.21.1-19.0.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f6b232475b4530c798f5a97e238d2e42902ac3b1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6085644
+project-id = 250398

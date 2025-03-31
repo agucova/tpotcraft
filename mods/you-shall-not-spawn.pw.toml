@@ -1,0 +1,13 @@
+name = "You Shall Not Spawn! (Modpack Utils Series)"
+filename = "YSNS-Fabric_Quilt-MC1.21-1.0.6.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "41d3276277891615e7356481bd27abf1059e9b1e"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5424328
+project-id = 628744

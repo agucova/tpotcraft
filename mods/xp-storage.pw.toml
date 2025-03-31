@@ -1,0 +1,13 @@
+name = "XP Storage"
+filename = "xp_storage-1.6+1.21.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "6a3acb4474734f4c450bec894a95ae284f2667b3"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5833637
+project-id = 403434

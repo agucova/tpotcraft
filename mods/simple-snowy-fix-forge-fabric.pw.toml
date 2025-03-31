@@ -1,0 +1,13 @@
+name = "Simple Snowy Fix (Forge / Fabric)"
+filename = "simple_snowy_fix-fabric-2.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ce6c0dbe8a005e414df6871d5809a5bf540ad8b5"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6296543
+project-id = 1211256

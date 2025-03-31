@@ -1,0 +1,13 @@
+name = "YUNG's Menu Tweaks (Fabric)"
+filename = "YungsMenuTweaks-1.21.1-Fabric-2.1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "0e5cd18ee58f199bfe4476d34c20cf5c908e3a69"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6158375
+project-id = 917292

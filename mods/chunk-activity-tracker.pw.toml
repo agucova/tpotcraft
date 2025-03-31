@@ -1,0 +1,13 @@
+name = "Chunk Activity Tracker"
+filename = "chunkactivitytracker-fabric-1.0.1-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "df78114c13c3ce53de4413de8f22dcc7aec543d5"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6164363
+project-id = 1193454

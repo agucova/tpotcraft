@@ -1,0 +1,13 @@
+name = "NetherPortalFix (Outdated Versions)"
+filename = "netherportalfix-fabric-1.21.1-21.1.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "e76c5ad84cbd75e6f77b5db206cee49e3aee3e24"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5623501
+project-id = 547696

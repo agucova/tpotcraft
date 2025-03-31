@@ -1,0 +1,13 @@
+name = "Beautiful Enchanted Books"
+filename = "Beautiful Enchanted Books - MC 1.21.X - 5.0.0.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "f5d20031c9ce95dee6f4fb03acd239285d559cb2"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6289655
+project-id = 969926

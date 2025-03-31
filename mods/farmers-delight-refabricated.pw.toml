@@ -1,0 +1,13 @@
+name = "Farmer's Delight Refabricated"
+filename = "FarmersDelight-1.21.1-2.3.0+refabricated.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "ea22d383eaf7c6759e949c3264c4a68d5feb3f06"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6189875
+project-id = 993166

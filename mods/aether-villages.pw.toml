@@ -1,0 +1,13 @@
+name = "Aether Villages"
+filename = "AetherVillages-1.21.1-1.0.8-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "8b1c44a35a31c80948f912bd62128c3bc842b1a8"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5895492
+project-id = 1073197

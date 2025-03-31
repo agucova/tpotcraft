@@ -1,0 +1,13 @@
+name = "Wraith Waystones"
+filename = "wraith-waystones-3.3.4+mc1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "9e9caa7187a37a76a75ee442c75ad9f3886f4e80"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5798771
+project-id = 410902

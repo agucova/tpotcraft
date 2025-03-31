@@ -1,0 +1,13 @@
+name = "Configurable"
+filename = "Configurable-2.2.3-fabric-yarn+1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "cb462cff69da26f3809688848711d9ea4621cdc0"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5915853
+project-id = 1092048

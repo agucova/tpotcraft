@@ -1,0 +1,13 @@
+name = "YUNG's Better Nether Fortresses (Fabric)"
+filename = "YungsBetterNetherFortresses-1.21.1-Fabric-3.1.4.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "d3cd7f46f769368a66c6231b3fe7e0ad9cfa50b1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6272431
+project-id = 817666

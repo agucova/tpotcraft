@@ -1,0 +1,13 @@
+name = "Redirected"
+filename = "redirected-fabric-1.0.0-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "011d12caee56de47fa3f89b84c8d19461a123c2c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6148843
+project-id = 1191845

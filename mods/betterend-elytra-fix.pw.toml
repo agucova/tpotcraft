@@ -1,0 +1,13 @@
+name = "BetterEnd Elytra Fix"
+filename = "betterendelytrafix-fabric-1.0.0-1.21.1.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "114eefeb0dbee6aa59b34d2f5606cd3a84400355"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6181759
+project-id = 1198262

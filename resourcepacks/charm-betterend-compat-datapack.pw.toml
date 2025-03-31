@@ -1,0 +1,13 @@
+name = "Charm - BetterEnd Compat Datapack"
+filename = "Charm_BetterEnd_integration_v5.zip"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "38555a834487b197df1c6a28b4240c10ff2963fe"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5493851
+project-id = 704940

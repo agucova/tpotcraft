@@ -1,0 +1,13 @@
+name = "Loot Integrations: Formations Overworld & Nether"
+filename = "lootintegrations_formations-1.2.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "a708896a288a8d1bc4df924ebc0dadbc9f3556e1"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6170529
+project-id = 1146867

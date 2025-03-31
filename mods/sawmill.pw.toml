@@ -1,0 +1,13 @@
+name = "Sawmill"
+filename = "sawmill-1.21-1.5.14-fabric.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "1264c20807ec21039c15774b67cc4e9c0fd3349c"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 6119475
+project-id = 964817

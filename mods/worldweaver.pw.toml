@@ -1,0 +1,13 @@
+name = "WorldWeaver"
+filename = "worldweaver-21.0.13.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "01e7196395386bbddc3ff7d47fe37869a850cecd"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5616543
+project-id = 1037172

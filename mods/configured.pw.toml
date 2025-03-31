@@ -1,0 +1,13 @@
+name = "Configured"
+filename = "configured-fabric-1.21.1-2.6.0.jar"
+side = "both"
+
+[download]
+hash-format = "sha1"
+hash = "6a0112af8b189a5f3b7e76cebfd78f0b1fe27530"
+mode = "metadata:curseforge"
+
+[update]
+[update.curseforge]
+file-id = 5873787
+project-id = 457570
