@@ -15,10 +15,10 @@
       config.allowUnfree = true;
     };
     
-    # We need a GitHub URL for the packwiz modpack - currently using temporary placeholder
-    # You can update this URL with your actual GitHub repository
+    # Using the GitHub URL for the packwiz modpack
     packwizUrl = "https://raw.githubusercontent.com/agucova/tpotcraft/main/pack.toml";
-    packwizHash = "sha256-CXXM+qrJ7nAYOE3VjzM9tJyidKPxpgFCK+Z3r1LrPjU=";
+    # Use proper hash derived from the commit we just pushed
+    packwizHash = "sha256-Y/OfAx99X5U/39yePepFepLGt9C68oYGxuOD+5XpFik=";
     
     # Fetch modpack using fetchPackwizModpack
     tpotModpack = pkgs.fetchPackwizModpack {
