@@ -1,5 +1,5 @@
 {
-  description = "Better Minecraft 2 server with Fabric";
+  description = "Better Minecraft 3 server with Fabric";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -50,8 +50,8 @@
             pkgs.jdk17
             
             # The Minecraft server package
-            (pkgs.fabricServers.fabric-1_20_1.override {
-              loaderVersion = "0.15.6";
+            (pkgs.fabricServers.fabric-1_21.override {
+              loaderVersion = "0.15.9";
             })
           ];
         };

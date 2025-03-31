@@ -1,11 +1,11 @@
 # TPotCraft Server
 
-A NixOS-based Minecraft server for Better Minecraft 2 modpack using Fabric.
+A NixOS-based Minecraft server for Better Minecraft 3 modpack using Fabric.
 
 ## Features
 
 - Declarative configuration using NixOS and Flakes
-- Minecraft 1.20.1 with Fabric 0.15.6
+- Minecraft 1.21 with Fabric 0.15.9
 - Docker and VM support for running locally
 - Optimized JVM settings for performance
 
@@ -49,7 +49,7 @@ You have two options for running the server locally on your Ubuntu machine:
    docker-compose up -d
    ```
 
-7. Download and install the Better Minecraft 2 modpack files:
+7. Download and install the Better Minecraft 3 modpack files:
    - Download the server files from CurseForge or Modrinth
    - Extract them into the `minecraft-data/mods` and `minecraft-data/config` directories
 
@@ -75,9 +75,9 @@ You have two options for running the server locally on your Ubuntu machine:
    ./result/bin/run-tpotcraft-vm
    ```
 
-5. Download and install the Better Minecraft 2 modpack files in the VM:
+5. Download and install the Better Minecraft 3 modpack files in the VM:
    - Login with username `minecraft` and password `minecraft`
-   - Download the server files to `/srv/minecraft/bm2/mods` and `/srv/minecraft/bm2/config`
+   - Download the server files to `/srv/minecraft/bm3/mods` and `/srv/minecraft/bm3/config`
 
 6. The VM will boot with the Minecraft server accessible at localhost:25565
 
@@ -91,8 +91,8 @@ You have two options for running the server locally on your Ubuntu machine:
 ### For VM:
 - Login with username `minecraft` and password `minecraft`
 - The server will autostart
-- Console: `sudo tmux -S /run/minecraft/bm2.sock attach` (detach with Ctrl+b, d)
-- Service management: `sudo systemctl {start|stop|restart} minecraft-servers-bm2`
+- Console: `sudo tmux -S /run/minecraft/bm3.sock attach` (detach with Ctrl+b, d)
+- Service management: `sudo systemctl {start|stop|restart} minecraft-servers-bm3`
 
 ## Server Properties
 

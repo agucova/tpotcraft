@@ -41,13 +41,13 @@
     openFirewall = true;
     dataDir = "/srv/minecraft";
     
-    servers.bm2 = {
+    servers.bm3 = {
       enable = true;
       autoStart = true;
       
-      # Better Minecraft 2 uses Minecraft 1.20.1 with Fabric
-      package = pkgs.fabricServers.fabric-1_20_1.override {
-        loaderVersion = "0.15.6";
+      # Better Minecraft 3 uses Minecraft 1.21 with Fabric
+      package = pkgs.fabricServers.fabric-1_21.override {
+        loaderVersion = "0.15.9";
       };
       
       # Server settings
@@ -57,7 +57,7 @@
         server-port = 25565;
         difficulty = "normal";
         gamemode = "survival";
-        motd = "TPotCraft - Better Minecraft 2";
+        motd = "TPotCraft - Better Minecraft 3";
         white-list = true;
         spawn-protection = 0;
         max-players = 10;

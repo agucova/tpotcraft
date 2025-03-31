@@ -40,10 +40,10 @@ echo "Starting the VM..."
 echo "- The VM will boot with a graphical interface"
 echo "- Login with username: minecraft, password: minecraft"
 echo "- The Minecraft server will auto-start and be available at localhost:25565"
-echo "- To access the server console in the VM: sudo tmux -S /run/minecraft/bm2.sock attach"
+echo "- To access the server console in the VM: sudo tmux -S /run/minecraft/bm3.sock attach"
 echo ""
-echo "IMPORTANT: You still need to download the Better Minecraft 2 modpack files"
-echo "and put them in /srv/minecraft/bm2/mods and /srv/minecraft/bm2/config inside the VM"
+echo "IMPORTANT: You still need to download the Better Minecraft 3 modpack files"
+echo "and put them in /srv/minecraft/bm3/mods and /srv/minecraft/bm3/config inside the VM"
 echo "==================================="
 
 # Run the VM
