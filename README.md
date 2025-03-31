@@ -1,14 +1,13 @@
 # TPotCraft Server
 
-A NixOS-based Minecraft server running the Better Minecraft 2 modpack using Fabric.
+A NixOS-based Minecraft server for Better Minecraft 2 modpack using Fabric.
 
 ## Features
 
 - Declarative configuration using NixOS and Flakes
-- Better Minecraft 2 essentials (1.20.1) 
-- Server configuration with optimized JVM options
-- Performance-optimized mods included
+- Minecraft 1.20.1 with Fabric 0.15.6
 - Docker and VM support for running locally
+- Optimized JVM settings for performance
 
 ## Running Locally on Ubuntu
 
@@ -35,7 +34,8 @@ You have two options for running the server locally on your Ubuntu machine:
 
 4. Build the Docker image:
    ```
-   nix build .#dockerImage
+   cd tpotcraft
+   NIXPKGS_ALLOW_UNFREE=1 nix build .#dockerImage --experimental-features "nix-command flakes" --impure
    ```
 
 5. Load the image into Docker:
@@ -49,7 +49,11 @@ You have two options for running the server locally on your Ubuntu machine:
    docker-compose up -d
    ```
 
-7. The server will be available at localhost:25565
+7. Download and install the Better Minecraft 2 modpack files:
+   - Download the server files from CurseForge or Modrinth
+   - Extract them into the `minecraft-data/mods` and `minecraft-data/config` directories
+
+8. The server will be available at localhost:25565
 
 ### Option 2: VM with QEMU
 
@@ -67,26 +71,15 @@ You have two options for running the server locally on your Ubuntu machine:
 
 4. Build and run the VM:
    ```
-   nix build .#vm
+   NIXPKGS_ALLOW_UNFREE=1 nix build .#vm --experimental-features "nix-command flakes" --impure
    ./result/bin/run-tpotcraft-vm
    ```
 
-5. The VM will boot with the Minecraft server accessible at localhost:25565
+5. Download and install the Better Minecraft 2 modpack files in the VM:
+   - Login with username `minecraft` and password `minecraft`
+   - Download the server files to `/srv/minecraft/bm2/mods` and `/srv/minecraft/bm2/config`
 
-## Mod Management
-
-Essential mods for Better Minecraft 2 are included directly in the configuration. To add more mods:
-
-1. Find the mod on Modrinth or CurseForge
-2. Use the nix-modrinth-prefetch tool to get the fetchurl expression:
-   ```
-   nix run github:Infinidoge/nix-minecraft#nix-modrinth-prefetch -- <version-id>
-   ```
-   Where `<version-id>` is the ID found on the mod's version page
-3. Add the fetchurl expression to the mods section in either:
-   - `configuration.nix` for NixOS systems
-   - `vm-configuration.nix` for VM deployment
-   - `flake.nix` in the dockerImage section for Docker deployment
+6. The VM will boot with the Minecraft server accessible at localhost:25565
 
 ## Server Management
 

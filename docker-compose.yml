@@ -2,13 +2,13 @@ version: '3'
 
 services:
   minecraft:
-    build: .
+    image: tpotcraft:latest
     container_name: tpotcraft
     restart: unless-stopped
     ports:
       - "25565:25565"
     volumes:
-      - ./minecraft-data:/minecraft/world
+      - ./minecraft-data:/data
     environment:
       - JAVA_OPTS=-Xmx4G -Xms2G -XX:+UseG1GC
     tty: true

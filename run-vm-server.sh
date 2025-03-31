@@ -11,11 +11,8 @@ if ! command -v nix &> /dev/null; then
     if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
         . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
     fi
-fi
-
-# Enable flakes if not already enabled
-if ! grep -q "experimental-features" ~/.config/nix/nix.conf 2>/dev/null; then
-    echo "Enabling Nix flakes..."
+    
+    # Enable flakes
     mkdir -p ~/.config/nix
     echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 fi
@@ -32,16 +29,22 @@ mkdir -p ~/tpotcraft-data
 
 # Build the VM script
 echo "Building VM script with Nix..."
-nix build .#vm
+NIXPKGS_ALLOW_UNFREE=1 nix build .#vm --experimental-features "nix-command flakes" --impure
 
 # Make the script executable
 chmod +x result/bin/run-tpotcraft-vm
 
+echo ""
+echo "==================================="
 echo "Starting the VM..."
 echo "- The VM will boot with a graphical interface"
 echo "- Login with username: minecraft, password: minecraft"
 echo "- The Minecraft server will auto-start and be available at localhost:25565"
 echo "- To access the server console in the VM: sudo tmux -S /run/minecraft/bm2.sock attach"
+echo ""
+echo "IMPORTANT: You still need to download the Better Minecraft 2 modpack files"
+echo "and put them in /srv/minecraft/bm2/mods and /srv/minecraft/bm2/config inside the VM"
+echo "==================================="
 
 # Run the VM
 ./result/bin/run-tpotcraft-vm
