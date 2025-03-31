@@ -1,41 +1,62 @@
 # TPotCraft Server
 
-A NixOS-based Minecraft server for Better Minecraft 3 using Fabric.
+A Docker-based Minecraft server for Better Minecraft 3 using Fabric, built with Nix.
 
 ## Features
 
-- Declarative configuration using NixOS and Flakes
+- Built with Nix and Docker for easy deployment
 - Minecraft 1.21 with Fabric 0.15.9
 - Better Minecraft 3 modpack support
 - Optimized JVM settings for performance
 
 ## Requirements
 
-- NixOS or Nix with flakes enabled
+- Nix with flakes enabled
+- Docker
 - Unfree packages allowed (for Minecraft)
 
-## Setup
+## Quick Start
 
-1. Clone this repository
-2. Generate a hardware configuration for your target system:
+Just run the provided setup script:
+
+```bash
+./run-server.sh
+```
+
+This will:
+1. Install Nix and Docker if needed
+2. Build the Docker image using Nix
+3. Create a data directory with default settings
+4. Download core mods (Fabric API and Fabric Language Kotlin)
+5. Start the server
+
+## Manual Setup
+
+If you prefer to do things manually:
+
+1. Build the Docker image:
    ```
-   nixos-generate-config --show-hardware-config > hardware-configuration.nix
+   NIXPKGS_ALLOW_UNFREE=1 nix build .#docker-image --experimental-features "nix-command flakes" --impure
    ```
-3. Build and deploy to your system:
+
+2. Load the image into Docker:
    ```
-   sudo nixos-rebuild switch --flake .
+   docker load < result
+   ```
+
+3. Create data directory and start the server:
+   ```
+   mkdir -p minecraft-data
+   docker compose up -d
    ```
 
 ## Managing the Server
 
-Once deployed, the server will be available as a systemd service:
-
-- Start: `sudo systemctl start minecraft-servers-bm3`
-- Stop: `sudo systemctl stop minecraft-servers-bm3`
-- Restart: `sudo systemctl restart minecraft-servers-bm3`
-- Status: `sudo systemctl status minecraft-servers-bm3`
-- Logs: `sudo journalctl -u minecraft-servers-bm3 -f`
-- Console: `sudo tmux -S /run/minecraft/bm3.sock attach` (detach with Ctrl+b, d)
+- Start: `docker compose up -d`
+- Stop: `docker compose down`
+- Restart: `docker compose restart minecraft`
+- Logs: `docker logs -f tpotcraft`
+- Console: `docker attach tpotcraft` (detach with Ctrl+p, Ctrl+q)
 
 ## Server Properties
 
@@ -47,30 +68,21 @@ The server is configured with the following properties:
 - Whitelist: Enabled
 - Max Players: 10
 
-## Adding Mods and Customization
+You can modify these settings in the `minecraft-data/server.properties` file.
 
-This configuration includes the core Fabric mods required for Better Minecraft 3. You can add additional mods by:
+## Adding Better Minecraft 3 Mods
 
-1. Finding the mod on Modrinth
-2. Getting the download URL and hash
-3. Adding it to the `symlinks.mods` section in `configuration.nix`
+This setup includes only the core Fabric mods. To get the full Better Minecraft 3 experience:
 
-Example:
-```nix
-Lithium = pkgs.fetchurl {
-  url = "https://cdn.modrinth.com/data/gvQqBUqZ/versions/ZSNsJrPI/lithium-fabric-mc1.20.1-0.11.2.jar";
-  hash = "sha256-RWC7E8BdLTw0lQ3GGFY5s7OdC3gxfX3VwT1HS1K0T20=";
-};
-```
+1. Download the Better Minecraft 3 modpack from [Modrinth](https://modrinth.com/modpack/better-mc-fabric-bmc3)
+2. Extract the mods and config files
+3. Add them to the `minecraft-data/mods` and `minecraft-data/config` directories
 
-You can also add config files, resource packs, and other customizations using the `symlinks` or `files` options in the configuration.
+## Data Location
 
-## Directory Structure
+All server data is stored in the `minecraft-data` directory, which is mounted as a volume in the Docker container:
 
-Server data is stored in the following locations:
-
-- Server files: `/srv/minecraft/bm3/`
-- World data: `/srv/minecraft/bm3/world/`
-- Logs: `/srv/minecraft/bm3/logs/`
-- Mods: `/srv/minecraft/bm3/mods/`
-- Config: `/srv/minecraft/bm3/config/`
+- World data: `minecraft-data/world/`
+- Mods: `minecraft-data/mods/`
+- Config: `minecraft-data/config/`
+- Logs: `minecraft-data/logs/`
