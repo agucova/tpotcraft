@@ -15,10 +15,10 @@ You have two options for running the server locally on your Ubuntu machine:
 
 ### Option 1: Docker (Recommended)
 
-1. Make sure you have Docker and Docker Compose installed:
+1. Make sure you have Docker installed:
    ```
    sudo apt update
-   sudo apt install docker.io docker-compose
+   sudo apt install docker.io
    ```
 
 2. Install Nix (if not already installed):
@@ -46,7 +46,7 @@ You have two options for running the server locally on your Ubuntu machine:
 6. Create a data directory and start the server:
    ```
    mkdir -p minecraft-data
-   docker-compose up -d
+   docker compose up -d
    ```
 
 7. Download and install the Better Minecraft 3 modpack files:
@@ -86,7 +86,7 @@ You have two options for running the server locally on your Ubuntu machine:
 ### For Docker:
 - Logs: `docker logs -f tpotcraft`
 - Console: `docker attach tpotcraft` (detach with Ctrl+p, Ctrl+q)
-- Stop: `docker-compose down`
+- Stop: `docker compose down`
 
 ### For VM:
 - Login with username `minecraft` and password `minecraft`

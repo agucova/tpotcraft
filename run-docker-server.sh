@@ -6,7 +6,7 @@ set -e
 if ! command -v docker &> /dev/null; then
     echo "Docker not found. Installing Docker and Docker Compose..."
     sudo apt update
-    sudo apt install -y docker.io docker-compose
+    sudo apt install -y docker.io
     
     # Add current user to docker group
     sudo usermod -aG docker $USER
@@ -46,10 +46,10 @@ mkdir -p minecraft-data
 
 # Start the server
 echo "Starting Minecraft server..."
-if command -v docker-compose &> /dev/null && groups | grep -q '\bdocker\b'; then
-    docker-compose up -d
+if groups | grep -q '\bdocker\b'; then
+    docker compose up -d
 else
-    sudo docker-compose up -d
+    sudo docker compose up -d
 fi
 
 echo ""
@@ -58,7 +58,7 @@ echo "TPotCraft server is running!"
 echo "- Connect to the server at: localhost:25565"
 echo "- View logs with: docker logs -f tpotcraft"
 echo "- Access console with: docker attach tpotcraft (detach with Ctrl+p, Ctrl+q)"
-echo "- Stop the server with: docker-compose down"
+echo "- Stop the server with: docker compose down"
 echo ""
 echo "IMPORTANT: You still need to download the Better Minecraft 3 modpack files"
 echo "and put them in the minecraft-data/mods and minecraft-data/config directories"
