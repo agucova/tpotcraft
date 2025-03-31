@@ -43,9 +43,7 @@
         
         config = {
           Cmd = [
-            "/bin/bash", 
-            "-c", 
-            "if [ ! -f /data/eula.txt ] || ! grep -q 'eula=true' /data/eula.txt; then echo 'eula=true' > /data/eula.txt; fi && mkdir -p /data/mods /data/config && cd /data && java -Xmx4G -Xms2G -XX:+UseG1GC -jar $(find /nix/store -name 'fabric-server-launch.jar' | head -1) nogui"
+            "/bin/bash", "-c", "if [ ! -f /data/eula.txt ] || ! grep -q 'eula=true' /data/eula.txt; then echo 'eula=true' > /data/eula.txt; fi && mkdir -p /data/mods /data/config && cd /data && java -Xmx4G -Xms2G -XX:+UseG1GC -jar $(find /nix/store -name 'fabric-server-launch.jar' | head -1) nogui"
           ];
           WorkingDir = "/data";
           Volumes = {
