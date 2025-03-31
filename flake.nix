@@ -88,7 +88,7 @@
               };
               C2ME = pkgs.fetchurl {
                 url = "https://cdn.modrinth.com/data/VSNURh3q/versions/t4juSkze/c2me-fabric-mc1.20.1-0.2.0%2Balpha.10.91.jar";
-                hash = "sha256-BMJ9sYCn9zv5W6bDLXfX1pHzwICLPZ9+8r/vS5m9rQI=";
+                hash = "sha256-usxErU+340H034jAdLppLZd8SrYiFeNCSUibZ2kVUYk=";
               };
             }))
           ];
